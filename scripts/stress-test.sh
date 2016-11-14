@@ -7,11 +7,12 @@ fi
 
 RUN_DURATION=14m
 
+MODEL_REPORTED=`head -n 1 /media/boot/boot.ini | cut -d '-' -f 1 | tr -d '\n'`
 if [ "${MODEL_REPORTED}x" == "ODROIDCx" ] ; then
 	ODROID_MODEL="C"
 	CPU_COUNT=4
-elif [ "${MODEL_REPORTED}x" == "ODROID-XU3x" ] ; then
-	ODROID_MODEL="XU3"
+elif [ "${MODEL_REPORTED}x" == "ODROIDXUx" ] ; then
+	ODROID_MODEL="XU"
 	RUN_DURATION=23m
 	CPU_COUNT=8
 else
